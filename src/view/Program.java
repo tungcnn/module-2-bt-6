@@ -18,7 +18,8 @@ public class Program {
                     2 - Change officer info
                     3 - Remove officer
                     4 - Display all officers info
-                    5 - Quit
+                    5 - Calculate salary
+                    6 - Quit
                     Enter your choice: 
                     """);
             try {
@@ -28,22 +29,16 @@ public class Program {
                         addMenu();
                         break;
                     case 2:
-                        System.out.println("Enter officer name for searching:");
-                        Officer o = om.search(sc.nextLine());
-                        if (o == null) {
-                            System.out.println("No such officer");
-                        } else {
+                        Officer o = Menu.searchOfficer(om);
+                        if (o != null) {
                             String className = o.getClass().getSimpleName();
                             Officer newOfficer = Menu.getOfficerInfo(className);
                             om.update(newOfficer, o);
                         }
                         break;
                     case 3:
-                        System.out.println("Enter officer name for searching:");
-                        Officer o2 = om.search(sc.nextLine());
-                        if (o2 == null) {
-                            System.out.println("No such officer");
-                        } else {
+                        Officer o2 = Menu.searchOfficer(om);
+                        if (o2 != null) {
                             om.remove(o2);
                         }
                         break;
@@ -51,6 +46,14 @@ public class Program {
                         om.show();
                         break;
                     case 5:
+                        Officer o3 = Menu.searchOfficer(om);
+                        if (o3 != null) {
+                            System.out.println("Enter the total number of working days for this officer:");
+                            o3.setWorkingDays(Integer.parseInt(sc.nextLine()));
+                            System.out.println(o3.getClass().getSimpleName() + " " + o3.getName() + "'s salary for this month is " + o3.getSalary());
+                        }
+                        break;
+                    case 6:
                         System.out.println("Bye bye");
                         break;
                     default:
@@ -59,7 +62,7 @@ public class Program {
             } catch (NumberFormatException e) {
                 System.out.println("Please enter a number");
             }
-        } while (choice != 5);
+        } while (choice != 6);
     }
 
     static void addMenu() {

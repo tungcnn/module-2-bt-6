@@ -4,11 +4,13 @@ public class Engineer extends Officer {
     private String major;
 
     public Engineer() {
+        this.ratio = 1.5;
     }
 
-    public Engineer(String name, String dateOfBirth, String gender, String address, String major) {
-        super(name, dateOfBirth, gender, address);
+    public Engineer(String name, String dateOfBirth, String gender, String address, String major, double hardSalary) {
+        super(name, dateOfBirth, gender, address, hardSalary);
         this.major = major;
+        this.ratio = 1.5;
     }
 
     public String getMajor() {
@@ -27,6 +29,8 @@ public class Engineer extends Officer {
                 ", dateOfBirth='" + dateOfBirth + '\'' +
                 ", gender='" + gender + '\'' +
                 ", address='" + address + '\'' +
+                ", hardSalary=" + hardSalary +
+                ", ratio=" + ratio +
                 '}';
     }
 }

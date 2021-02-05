@@ -4,11 +4,13 @@ public class Employee extends Officer{
     private String task;
 
     public Employee() {
+        this.ratio = 1;
     }
 
-    public Employee(String name, String dateOfBirth, String gender, String address, String task) {
-        super(name, dateOfBirth, gender, address);
+    public Employee(String name, String dateOfBirth, String gender, String address, String task, double hardSalary) {
+        super(name, dateOfBirth, gender, address, hardSalary);
         this.task = task;
+        this.ratio = 1;
     }
 
     public String getTask() {
@@ -27,6 +29,8 @@ public class Employee extends Officer{
                 ", dateOfBirth='" + dateOfBirth + '\'' +
                 ", gender='" + gender + '\'' +
                 ", address='" + address + '\'' +
+                ", hardSalary=" + hardSalary +
+                ", ratio=" + ratio +
                 '}';
     }
 }
