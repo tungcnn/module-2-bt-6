@@ -52,10 +52,6 @@ public class OfficerManagement<T extends Officer> implements IMethods<T> {
 
     @Override
     public void remove(T removeObj) {
-        for (T obj : list) {
-            if (obj.getName().equals(removeObj.getName())) {
-                list.remove(obj);
-            }
-        }
+        list.removeIf(obj -> obj.getName().equals(removeObj.getName()));
     }
 }
